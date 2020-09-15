@@ -18,3 +18,9 @@ m = np.shape(A)[1]
 Identidade = np.eye(n)
 
 print(A, n, m, Identidade)
+
+B = np.array([1, 2, 3, 4])
+
+n = np.shape(A)
+m = len(n)
+print('shape a :\n', A, '\n shape:\n', n, 'm:\n', m)

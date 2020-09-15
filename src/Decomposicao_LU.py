@@ -39,7 +39,6 @@ def matrizQuadrada(A):
 def substuicao_frente(L, b):
     n = np.shape(L)[0]
     y = np.copy(b)
-    print("\n Y inicial=\n", y)
     # cria um vetor y copia de b
     for j in np.arange(n):
         pivo = y[j]
@@ -75,10 +74,16 @@ def determinante(A):
     return det
 
 
-def arredondando(A):
+def arredondando(A, x):
+    aux = len(A)
     n = np.shape(A)[0]
-    m = np.shape(A)[1]
-    for i in np.arange(n):
-        for j in np.arange(m):
-            # arredonda cada valor com 1 casa decimal
-            A[i, j] = round(A[i, j], 1)
+
+    if aux == 1:
+        for i in np.arange(n):
+            A[i] = round(A[i], x)
+    if aux == 2:
+        m = np.shape(A)[1]
+        for i in np.arange(n):
+            for j in np.arange(m):
+                # arredonda cada valor com 1 casa decimal
+                A[i, j] = round(A[i, j], x)
