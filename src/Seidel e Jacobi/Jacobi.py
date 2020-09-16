@@ -1,23 +1,5 @@
 import numpy as np
 
-A2 = np.matrix([[5, -4, 1, 0], [-4, 6, -4, 1],
-                [1, -4, 6, -4], [0, 1, -4, 5]], dtype=float)
-
-B2 = np.array([-1, 2, 1, 3], dtype=float)
-
-A = np.matrix([[10, 2, 1],
-               [1, 5, 1],
-               [2, 3, 10]], dtype=float)
-
-B = np.array([7, -8, 6], dtype=float)
-
-v0 = np.array([1, 1, 1], dtype=float)
-v1 = np.array([1, 1.33, 1.11], dtype=float)
-v2 = np.array([1.15, 1.42, 1.19], dtype=float)
-
-Vetor = np.zeros_like(B2)
-print('vetor inicial:\n', Vetor)
-
 
 def modulo(x):
     if (x < 0):
@@ -50,13 +32,8 @@ def criterio_convergencia(A):
     return boo
 
 
-boolean = criterio_convergencia(A2)
-print(A2, boolean)
-
-
 def residuo(v1, v0):
     n = np.shape(v1)[0]
-    print("numero linhas de v1 : \n ", n)
     num, den = 0, 0
 
     for i in np.arange(n):
@@ -65,13 +42,12 @@ def residuo(v1, v0):
 
     num = num**0.5
     den = den**0.5
-
     r = num/den
 
     return r
 
 
-def jacobi(A, b, vetorSolucao, tolerancia, iteracoes):
+def jacobi(A, b, vetorSolucao, tolerancia):
     iteracao = 0
 
     boolean = criterio_convergencia(A)
@@ -80,8 +56,9 @@ def jacobi(A, b, vetorSolucao, tolerancia, iteracoes):
 
     vetorAuxiliar = np.copy(vetorSolucao)
     n = np.shape(A)[0]
+    res = 1
 
-    while (iteracao < iteracoes):
+    while (res > tolerancia):
         for i in np.arange(n):
             x = b[i]
             for j in np.arange(n):
@@ -91,17 +68,8 @@ def jacobi(A, b, vetorSolucao, tolerancia, iteracoes):
             vetorAuxiliar[i] = x
         iteracao += 1
 
+        res = residuo(vetorAuxiliar, vetorSolucao)
         vetorSolucao = np.copy(vetorAuxiliar)
         print('\nVetorSolucao da iteracao ', iteracao, ' :\n', vetorSolucao)
 
     return (vetorSolucao, boolean, iteracao)
-
-
-r = residuo(v1, v0)
-print('residuo de V1 e v2:\n', r)
-
-tolerancia = 0.001
-
-Vetor, boolean, it = jacobi(A2, B2, Vetor, tolerancia, 20)
-
-print('JACOBI:\n vetor:\n ', Vetor, boolean, 'numero iteracoes:\n', it)
