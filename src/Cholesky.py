@@ -31,12 +31,9 @@ def transposta(A):
 
 def substuicao_frente(L, b):
     n = np.shape(L)[0]
-    for j in np.arange(n):
-        pivo = b[j]
-        for i in np.arange(n):
-            if(i > j):
-                b[i] += (L[i, j]*-1) * pivo
+    y = np.zeros(n)
 
-    return(b)
-
-# Sample symmetric, postive matrix
+    for i in np.arange(n):
+        soma = sum(L[i, j] * y[j] for j in np.arange(i))
+        y[i] = (b[i] - soma) / L[i, i]
+    return(y)

@@ -75,13 +75,16 @@ def determinante(A):
 
 
 def arredondando(A, x):
-    aux = len(A)
+
+    n = np.shape(A)
+    aux = len(n)
+
     n = np.shape(A)[0]
 
     if aux == 1:
         for i in np.arange(n):
             A[i] = round(A[i], x)
-    if aux == 2:
+    else:
         m = np.shape(A)[1]
         for i in np.arange(n):
             for j in np.arange(m):
