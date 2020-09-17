@@ -1,6 +1,6 @@
 import numpy as np
 import Jacobi as jc
-
+import Seidel as sd
 
 A2 = np.matrix([[5, -4, 1, 0], [-4, 6, -4, 1],
                 [1, -4, 6, -4], [0, 1, -4, 5]], dtype=float)
@@ -15,11 +15,20 @@ B = np.array([7, -8, 6], dtype=float)
 
 
 Vetor = np.zeros_like(B)
+
+Vetor2 = np.zeros_like(B2)
+
 print('vetor inicial:\n', Vetor)
 
-tol = 0.00000001
+tol = 0.00001
 
-Vetor, boolean, it = jc.jacobi(A, B, Vetor, tol)
+V_jacobi, boolean, it = jc.jacobi(A, B, Vetor, tol)
 
-print('JACOBI:\n vetor:\n ', Vetor, '\n Matriz é diagonal dominante: \n',
+print('JACOBI:\n vetor:\n ', V_jacobi, '\n Matriz é diagonal dominante: \n',
+      boolean, '\nNumero iteracoes:\n', it)
+
+
+V_seidel, boolean, it = sd.seidel(A, B, Vetor, tol)
+
+print('SEIDEL:\n vetor:\n ', V_seidel, '\n Matriz é diagonal dominante: \n',
       boolean, '\nNumero iteracoes:\n', it)
