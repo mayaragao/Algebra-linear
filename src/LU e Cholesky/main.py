@@ -30,14 +30,14 @@ B3 = np.array([4, 0, 8, 0, 2, 0, 8, 0, 4, 0], dtype=float)
 
 def menu(A, B):
     escolha = int(input('''
-        Qual operação você deseja fazer com A e B ?
-1 - Fatoração LU de A
-2 - Cholesky de A
-3 - Solução de A x = B por LU
-4 - Solução de A x = B por Cholesky
-5 - Determinante A
-0 - Para sair do menu
-Escolha: '''))
+    Qual operação você deseja fazer com A e B ?
+        1 - Fatoração LU de A
+        2 - Cholesky de A
+        3 - Solução de A x = B por LU
+        4 - Solução de A x = B por Cholesky
+        5 - Determinante A
+        0 - Para sair do menu
+    Escolha: '''))
     if escolha == 1:
         L, U = lu.decomposicaoLU(A)
 
