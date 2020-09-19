@@ -1,14 +1,6 @@
 
 import numpy as np
 from math import cos, sin, atan, pi
-# from PowerMethod import modulo
-
-A = np.matrix([[1, 0.2, 0], [0.2, 1, 0.5], [0, 0.5, 1]], dtype=float)
-
-A3 = np.matrix([[3, 2, 0], [2, 3, -1], [0, -1, 3]], dtype=float)
-
-A2 = np.matrix([[5, 0, 0, 1], [-4, 6, -4, 5],
-                [1, -4, -9, -8], [0, 1, -4, 5]], dtype=float)
 
 
 def modulo(x):
@@ -91,7 +83,7 @@ def metodo_jacobi(A, tolerancia):
 
     At, boo = simetrica(A)
     if boo == False:
-        return (A, X,  boo)
+        return (A, X, iteracao, boo)
 
     ok, linha, coluna = teste_convergencia(Aux, n, tolerancia)
 
@@ -103,19 +95,15 @@ def metodo_jacobi(A, tolerancia):
         P_t = transposta(P)
 
         Aux = np.dot(P_t, Aux)
-        # multiplica P^t por A
         Aux = np.dot(Aux, P)
-        # multiplica o resultado acima por P, define nova matriz
 
         X = np.dot(X, P)
         iteracao += 1
 
-        print('\n Iteracao ', iteracao, '\nangulo phi: ', phi, '\nmatriz rotacao:\n', P,
-              '\nmatriz autovalores A=\n', Aux, '\nmatriz Autovetores X=\n', X)
-        # print('\n Maior termo de A: ',
-        #     Aux[linha, coluna], '\nlinha: ', linha, '\ncoluna:\n', coluna)
+        # print('\n Iteracao nº ', iteracao, '\nangulo phi: ', phi,
+        #      '\nmatriz autovalores A=\n', Aux, '\nmatriz Autovetores X=\n', X)
 
-    return (Aux, X, ok)
+    return (Aux, X, iteracao, ok)
 
 
 def arredondando(A, x):
@@ -132,9 +120,3 @@ def arredondando(A, x):
         for i in np.arange(n):
             for j in np.arange(m):
                 A[i, j] = round(A[i, j], x)
-
-
-tolerancia = 0.001
-
-
-At, X, boo = metodo_jacobi(A3, tolerancia)

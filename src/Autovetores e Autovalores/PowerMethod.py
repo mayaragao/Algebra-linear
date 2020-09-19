@@ -36,7 +36,7 @@ def metodo_potencia(A, X, lamb, tolerancia):
     lamb_aux = lamb
     iteracao = 0
 
-    print('\nX', iteracao, ' = ', X, '   lambda=', lamb)
+    #print('\nX', iteracao, ' = ', X, '   lambda=', lamb)
 
     while (r > tolerancia):
         iteracao += 1
@@ -46,7 +46,7 @@ def metodo_potencia(A, X, lamb, tolerancia):
         for i in np.arange(n):
             Y[i] /= lamb_aux
         r = residuo(lamb, lamb_aux)
-        print('\nX', iteracao, ' = ', Y, 'lambda = ', lamb_aux)
+        #print('\nX', iteracao, ' = ', Y, 'lambda = ', lamb_aux)
         lamb = lamb_aux
         X = np.copy(Y)
 
