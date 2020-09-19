@@ -37,15 +37,15 @@ def menu(A, B):
 
         Vetor = np.zeros_like(B)
 
-        print('\n GAUSS-JACOBI:\n\n A=\n', A)
+        print('\n GAUSS-JACOBI: \n')
 
         V_jacobi, boolean, it = jc.jacobi(A, B, Vetor, tol)
 
         if (boolean == False):
             print(
-                '\n JACOBI:\n Matriz não é diagonal dominante! \n\n Nº iteracoes:', it)
+                '\n Matriz A não é diagonal dominante! \n\n A =\n ', A, 'Nº iteracoes:', it)
         else:
-            print('JACOBI:\n Vetor:\n ', V_jacobi, '\n\n Matriz é diagonal dominante: ',
+            print('\n Matriz A =\n ', A, '\n\n Vetor B=\n ', B, '\n\n Vetor Solução=\n ', V_jacobi, '\n\n Matriz é diagonal dominante: ',
                   boolean, '\n Nº iteracoes:', it)
 
         menu(A, B)
@@ -53,15 +53,15 @@ def menu(A, B):
     elif escolha == 2:
 
         Vetor = np.zeros_like(B)
-        print('\n METODO DE JACOBI: \n')
+        print('\n GAUSS-SEIDEL: \n')
 
         V_seidel, boolean, it = sd.seidel(A, B, Vetor, tol)
 
         if (boolean == False):
             print(
-                '\n SEIDEL:\n A matriz não é diagonal dominante! \n\n Nº iteracoes:', it)
+                '\n\ A matriz não é diagonal dominante! \n\n A =n ', A, ' Nº iteracoes:', it)
         else:
-            print(' SEIDEL:\n Vetor:\n ', V_seidel, '\n\n Matriz é diagonal dominante: ',
+            print('\n Matriz A =\n ', A, '\n\n Vetor B=\n ', B, '\n\n Vetor Solução=\n ', V_seidel, '\n\n Matriz é diagonal dominante: ',
                   boolean, '\n Nº iteracoes:', it)
 
         menu(A, B)
@@ -72,4 +72,4 @@ def menu(A, B):
         menu(A.B)
 
 
-menu(A2, B2)
+menu(A3, B3)
