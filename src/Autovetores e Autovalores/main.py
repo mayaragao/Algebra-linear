@@ -5,10 +5,10 @@ import JacobiMethod as jm
 
 A = np.matrix([[1, 0.2, 0], [0.2, 1, 0.5], [0, 0.5, 1]], dtype=float)
 
+
 A2 = np.matrix([[3, 2, 0], [2, 3, -1], [0, -1, 3]], dtype=float)
 
-n = np.shape(A2)[0]
-X0 = np.ones(n)
+
 lambda0 = 1
 tolerancia = 0.001
 
@@ -25,9 +25,11 @@ def menu(A):
       Escolha:    '''))
     if escolha == 1:
 
-        print('\n MÉTODO DA POTENCIA:\n\n A=\n', A2)
-        lamb, X, iteracoes = pm.metodo_potencia(
-            A2, X0, lambda0, tolerancia)
+        n = np.shape(A)[0]
+        X0 = np.ones(n)
+
+        print('\n MÉTODO DA POTENCIA:\n\n A=\n', A)
+        lamb, X, iteracoes = pm.metodo_potencia(A, X0, lambda0, tolerancia)
 
         print('\n AutoVetor = ', X, '\n AutoValor =',
               lamb, '\n\n Nº de iterações: ', iteracoes, '\n Tolerância: ', tolerancia)
@@ -46,7 +48,7 @@ def menu(A):
             jm.arredondando(X, 4)
             jm.arredondando(A, 4)
 
-            print('\n A =\n', A, '\n\n Matriz Autovetores X = \n', X, '\n Autoalores =\n',
+            print('\n A =\n', A, '\n\n Matriz Autovetores X = \n', X, '\n Autovalores =\n',
                   Ax, '\n\n Nº de iterações: ', iteracoes, '\n Tolerância: ', tolerancia)
 
         menu(A)

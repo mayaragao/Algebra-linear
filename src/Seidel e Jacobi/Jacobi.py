@@ -70,6 +70,6 @@ def jacobi(A, b, vetorSolucao, tolerancia):
 
         res = residuo(vetorAuxiliar, vetorSolucao)
         vetorSolucao = np.copy(vetorAuxiliar)
-        print('\nVetorSolucao da iteracao ', iteracao, ' :\n', vetorSolucao)
+        print('\n VetorSolucao da iteracao ', iteracao, ' :\n', vetorSolucao)
 
     return (vetorSolucao, boolean, iteracao)

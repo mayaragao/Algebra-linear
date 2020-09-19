@@ -21,23 +21,30 @@ A3 = np.matrix([[16, 9, 8, 7, 6, 5, 4, 3, 2, 1],
                 [2, 3, 4, 5, 6, 7, 8, 9, 14, 9],
                 [1, 2, 3, 4, 5, 6, 7, 8, 9, 13]], dtype=float)
 
+
+A4 = np.matrix([[3, 2, 0], [2, 3, -1], [0, -1, 3]], dtype=float)
+
 B = np.array([1, 3, -1, 2], dtype=float)
 
 B2 = np.array([-1, 2, 1, 3], dtype=float)
 
 B3 = np.array([4, 0, 8, 0, 2, 0, 8, 0, 4, 0], dtype=float)
 
+B4 = np.array([1, -1, 1], dtype=float)
+
 
 def menu(A, B):
     escolha = int(input('''
+*********************************************************************
+
     Qual operação você deseja fazer com A e B ?
-        1 - Fatoração LU de A
-        2 - Cholesky de A
-        3 - Solução de A x = B por LU
-        4 - Solução de A x = B por Cholesky
-        5 - Determinante A
-        0 - Para sair do menu
-    Escolha: '''))
+        1   Fatoração LU de A
+        2   Cholesky de A
+        3   Solução de A x = B por LU
+        4   Solução de A x = B por Cholesky
+        5   Determinante A
+        0   Para sair do menu
+    Escolha:    '''))
     if escolha == 1:
         L, U = lu.decomposicaoLU(A)
 
@@ -114,4 +121,4 @@ def menu(A, B):
         menu(A, B)
 
 
-menu(A3, B3)
+menu(A4, B4)

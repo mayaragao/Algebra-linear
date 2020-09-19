@@ -25,6 +25,6 @@ def seidel(A, b, vetorSolucao, tolerancia):
 
         res = jc.residuo(vetorAuxiliar, vetorSolucao)
         vetorSolucao = np.copy(vetorAuxiliar)
-        print('\nVetorSolucao da iteracao ', iteracao, ' :\n', vetorSolucao)
+        print('\n VetorSolucao da iteracao ', iteracao, ' :\n', vetorSolucao)
 
     return (vetorSolucao, boolean, iteracao)
