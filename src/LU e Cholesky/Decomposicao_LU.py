@@ -38,15 +38,11 @@ def matrizQuadrada(A):
 
 def substuicao_frente(L, b):
     n = np.shape(L)[0]
-    y = np.copy(b)
-    # cria um vetor y copia de b
-    for j in np.arange(n):
-        pivo = y[j]
-        for i in np.arange(n):
-            if(i > j):
-                # somatorio da substuiçao pra frente
-                y[i] += (L[i, j]*-1) * pivo
+    y = np.zeros(n)
 
+    for i in np.arange(n):
+        soma = sum(L[i, j] * y[j] for j in np.arange(i))
+        y[i] = (b[i] - soma) / L[i, i]
     return(y)
 
 

@@ -73,7 +73,7 @@ def menu(A, B):
 
         L, U = lu.decomposicaoLU(A)
 
-        Y = cy.substuicao_frente(L, B)
+        Y = lu.substuicao_frente(L, B)
         X = lu.retro_substituicao(U, Y)
 
         lu.arredondando(L, decimais)
@@ -93,7 +93,7 @@ def menu(A, B):
 
         Ct = cy.transposta(C)
 
-        Y = cy.substuicao_frente(C, B)
+        Y = lu.substuicao_frente(C, B)
         X = lu.retro_substituicao(Ct, Y)
 
         lu.arredondando(C, decimais)
@@ -111,7 +111,8 @@ def menu(A, B):
     elif escolha == 5:
         L, U = lu.decomposicaoLU(A)
         det_A = lu.determinante(U)
-        print("\nO determinante de A é: \n", det_A)
+
+        print("\nO determinante de A é: \n", round(det_A, 4))
         menu(A, B)
 
     elif escolha == 0:
@@ -121,4 +122,4 @@ def menu(A, B):
         menu(A, B)
 
 
-menu(A4, B4)
+menu(A2, B2)

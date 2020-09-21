@@ -43,7 +43,7 @@ def menu(A, B):
 
         if (boolean == False):
             print(
-                '\n Matriz A não é diagonal dominante! \n\n A =\n ', A, 'Nº iteracoes:', it)
+                '\n Matriz A não é diagonal dominante! \n\n A =\n ', A, '\n Nº iteracoes:', it)
         else:
             print('\n Matriz A =\n ', A, '\n\n Vetor B=\n ', B, '\n\n Vetor Solução=\n ', V_jacobi, '\n\n Matriz é diagonal dominante: ',
                   boolean, '\n Nº iteracoes:', it)
@@ -59,7 +59,7 @@ def menu(A, B):
 
         if (boolean == False):
             print(
-                '\n\ A matriz não é diagonal dominante! \n\n A =n ', A, ' Nº iteracoes:', it)
+                '\n A matriz A não é diagonal dominante! \n\n A =n ', A, '\n Nº iteracoes:', it)
         else:
             print('\n Matriz A =\n ', A, '\n\n Vetor B=\n ', B, '\n\n Vetor Solução=\n ', V_seidel, '\n\n Matriz é diagonal dominante: ',
                   boolean, '\n Nº iteracoes:', it)
@@ -72,4 +72,4 @@ def menu(A, B):
         menu(A.B)
 
 
-menu(A3, B3)
+menu(A2, B2)

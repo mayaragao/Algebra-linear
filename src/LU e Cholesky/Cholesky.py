@@ -47,13 +47,3 @@ def simetrica(A):
                 return False
 
     return True
-
-
-def substuicao_frente(L, b):
-    n = np.shape(L)[0]
-    y = np.zeros(n)
-
-    for i in np.arange(n):
-        soma = sum(L[i, j] * y[j] for j in np.arange(i))
-        y[i] = (b[i] - soma) / L[i, i]
-    return(y)
