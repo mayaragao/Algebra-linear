@@ -1,4 +1,4 @@
-# Algebra-Linear-Computacional
+# Algebra Linear Computacional
 Implementando métodos numéricos de decomposição e solução de matrizes quadradas por fatoração LU, decomposição de Cholesky, métodos iterativos Gauss-Jacobi e Gauss-Seidel.
 Cálculo de autovetores e autovalores pelo Power Method e JacobiMethod e método de Mínimos Quadrados em python.
 
